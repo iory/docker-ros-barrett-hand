@@ -32,7 +32,8 @@ RUN rm /bin/sh && mv /bin/sh_tmp /bin/sh
 RUN touch /root/.bashrc && \
     echo "source /catkin_ws/devel/setup.bash\n" >> /root/.bashrc && \
     echo "rossetip\n" >> /root/.bashrc && \
-    echo "rossetmaster localhost"
+    echo "rossetmaster localhost\n" && \
+    echo 'export PYTHONPATH=/usr/lib:"$PYTHONPATH"\n' >> /root/.bashrc
 
 COPY ./ros_entrypoint.sh /
 
