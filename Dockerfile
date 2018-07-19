@@ -17,7 +17,7 @@ rm -rf /var/lib/apt/lists/*
 ENV PEAK_LINUX_DRIVER_VERSION peak-linux-driver-7.15.2
 RUN wget http://www.peak-system.com/fileadmin/media/linux/files/${PEAK_LINUX_DRIVER_VERSION}.tar.gz
 RUN tar xvzf ${PEAK_LINUX_DRIVER_VERSION}.tar.gz
-RUN cd ${PEAK_LINUX_DRIVER_VERSION} && make && make install
+RUN cd ${PEAK_LINUX_DRIVER_VERSION} && make NET=NO_NETDEV_SUPPORT && make install
 
 RUN git clone https://github.com/RobotnikAutomation/pcan_python && \
     cd pcan_python && \
