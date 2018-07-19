@@ -25,7 +25,7 @@ RUN git clone https://github.com/RobotnikAutomation/pcan_python && \
     make install
 
 RUN mkdir -p /catkin_ws/src && \
-    git clone https://github.com/RobotnikAutomation/barrett_hand /catkin_ws/src/barrett_hand
+    git clone -b ${ROS_DISTRO}-devel https://github.com/RobotnikAutomation/barrett_hand /catkin_ws/src/barrett_hand
 RUN mv /bin/sh /bin/sh_tmp && ln -s /bin/bash /bin/sh
 RUN source /opt/ros/${ROS_DISTRO}/setup.bash; cd /catkin_ws; catkin build
 RUN rm /bin/sh && mv /bin/sh_tmp /bin/sh
